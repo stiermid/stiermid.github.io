@@ -1,17 +1,9 @@
-# Welcome to MkDocs
+# Welcome to my page
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+## What I do here
 
-## Commands
+I'm planning to publish my public notes here. Probably you'll see what they look like. At the same time, I am not inviting anyone actively read my notes in order to learn topics along myself. Or you can do.
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
+## Why I do
 
-## Project layout
-
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+I am mad keen on that archiving thing. Content heavily stuff is what I love mostly. 
