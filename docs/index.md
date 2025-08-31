@@ -6,4 +6,4 @@ I'm planning to publish my public notes here. Probably you'll see what they look
 
 ## Why I do
 
-I am mad keen on that archiving thing. Content heavily stuff is what I love mostly. 
+I am mad keen on that archiving thing. Content heavily stuff is what I love mostly.
