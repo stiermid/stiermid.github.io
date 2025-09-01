@@ -35,3 +35,21 @@ The rate of data transfer is usually discussed in terms of bandwidth and through
 - The latency created by the number of network devices encountered between source and destination
 
 In an internetwork or network with multiple segments, throughput cannot be faster than the slowest link of the path from sending device to the receiving device. Even if all or most of the segments have high bandwidth, it will only take one segment in the path with lower bandwidth to create a slowdown of the throughput of the entire network.
+
+## Module 2: Network Components, Types, and Connections
+
+### 2.1. Clients and Servers
+
+All computers connected to a network that participate directly in network communication are classified as **hosts**.
+
+### 2.2. Network Components
+
+The network infrastructure contains three categories of hardware components:
+
+1. End devices
+2. Intermediate devices
+3. Network media
+
+### 2.3. ISP Connectivity Options
+
+An Internet Service Provider (ISP) provides the link between the home network and the internet. Many ISPs also offer services such as Web hosting, FTP hosting, Voice Over IP, automated backup and so on.
