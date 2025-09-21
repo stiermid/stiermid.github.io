@@ -53,3 +53,15 @@ The network infrastructure contains three categories of hardware components:
 ### 2.3. ISP Connectivity Options
 
 An Internet Service Provider (ISP) provides the link between the home network and the internet. Many ISPs also offer services such as Web hosting, FTP hosting, Voice Over IP, automated backup and so on.
+
+## Module 3: Wireless and Mobile Networks
+
+### 3.1. Wireless Networks
+
+No vital information in this chapter. Just only: types of wireless networks.
+Useful abbreviations:
+
+- **GPS**: Global Positioning System
+- **NFC**: Near Field Communication
+
+
