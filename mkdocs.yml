@@ -1,2 +1,5 @@
 site_name: still S
+site_url: https://stiermid.github.io/
+repo_url: https://github.com/stiermid/stiermid.github.io
 theme: readthedocs
+
