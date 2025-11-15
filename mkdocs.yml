@@ -1,5 +1,15 @@
-site_name: still S
+site_name: stiermid's
 site_url: https://stiermid.github.io/
 repo_url: https://github.com/stiermid/stiermid.github.io
-theme: readthedocs
+theme:
+  name: terminal
+  features:
+    - footer.prev_next
+
+nav:
+  - Home: 'index.md'
+  - Notes: 'notes/index.md'
+
+plugins:
+  - search
 
