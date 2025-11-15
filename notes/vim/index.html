@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="generator" content="mkdocs-1.6.1, mkdocs-terminal-4.7.0">
+     
+     
+    
+    <link rel="canonical" href="https://stiermid.github.io/notes/vim/"><link rel="icon" type="image/png" sizes="192x192" href="../../img/android-chrome-192x192.png" />
+<link rel="icon" type="image/png" sizes="512x512" href="../../img/android-chrome-512x512.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="../../img/apple-touch-icon.png" />
+<link rel="shortcut icon" type="image/png" sizes="48x48" href="../../img/favicon.ico" />
+<link rel="icon" type="image/png" sizes="16x16" href="../../img/favicon-16x16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="../../img/favicon-32x32.png" />
+
+
+    
+ 
+<title>VIM - stiermid's</title>
+
+
+<link href="../../css/fontawesome/css/fontawesome.min.css" rel="stylesheet">
+<link href="../../css/fontawesome/css/solid.min.css" rel="stylesheet">
+<link href="../../css/normalize.css" rel="stylesheet">
+<link href="../../css/terminal.css" rel="stylesheet">
+<link href="../../css/theme.css" rel="stylesheet">
+<link href="../../css/theme.tile_grid.css" rel="stylesheet">
+<link href="../../css/theme.footer.css" rel="stylesheet">
+<!-- default color palette -->
+<link href="../../css/palettes/default.css" rel="stylesheet">
+
+<!-- page layout -->
+<style>
+/* initially set page layout to a one column grid */
+.terminal-mkdocs-main-grid {
+    display: grid;
+    grid-column-gap: 1.4em;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+}
+
+/*  
+*   when side navigation is not hidden, use a two column grid.  
+*   if the screen is too narrow, fall back to the initial one column grid layout.
+*   in this case the main content will be placed under the navigation panel. 
+*/
+@media only screen and (min-width: 70em) {
+    .terminal-mkdocs-main-grid {
+        grid-template-columns: 4fr 9fr;
+    }
+}</style>
+
+
+
+     
+    
+    
+
+    
+    <!-- search css support -->
+<link href="../../css/search/bootstrap-modal.css" rel="stylesheet">
+<!-- search scripts -->
+<script>
+    var base_url = "../..",
+    shortcuts = "{}";
+</script>
+<script src="../../js/jquery/jquery-1.10.1.min.js" defer></script>
+<script src="../../js/bootstrap/bootstrap.min.js" defer></script>
+<script src="../../js/mkdocs/base.js" defer></script>
+    
+    
+    
+    
+    <script src="../../search/main.js"></script>
+    
+
+    
+</head>
+
+<body class="terminal"><div class="container">
+    <div class="terminal-nav">
+        <header class="terminal-logo">
+            <div id="mkdocs-terminal-site-name" class="logo terminal-prompt"><a href="https://stiermid.github.io/" class="no-style">stiermid's</a></div>
+        </header>
+        
+        <nav class="terminal-menu">
+            
+            <ul vocab="https://schema.org/" typeof="BreadcrumbList">
+                
+                
+                <li property="itemListElement" typeof="ListItem">
+                    <a href="../.." class="menu-item " property="item" typeof="WebPage">
+                        <span property="name">Home</span>
+                    </a>
+                    <meta property="position" content="0">
+                </li>
+                
+                
+                <li property="itemListElement" typeof="ListItem">
+                    <a href="../" class="menu-item " property="item" typeof="WebPage">
+                        <span property="name">Notes</span>
+                    </a>
+                    <meta property="position" content="1">
+                </li>
+                
+                    
+                    
+
+
+<li property="itemListElement" typeof="ListItem">
+    <a href="#" class="menu-item" data-toggle="modal" data-target="#mkdocs_search_modal" property="item" typeof="SearchAction">
+        <i aria-hidden="true" class="fa fa-search"></i> <span property="name">Search</span>
+    </a>
+    <meta property="position" content="2">
+</li>
+                    
+            </ul>
+            
+        </nav>
+    </div>
+</div>
+        
+    <div class="container">
+        <div class="terminal-mkdocs-main-grid"><aside id="terminal-mkdocs-side-panel"><nav>
+  
+    <ul class="terminal-mkdocs-side-nav-items">
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="../..">Home</a>
+        
+    
+    
+    
+  </li>
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="../">Notes</a>
+        
+    
+    
+    
+  </li>
+        
+    </ul>
+  
+</nav><hr>
+<nav>
+    <ul>
+        <li><a href="#vim">VIM</a></li>
+        <li><a href="#1-basic-character-movement">1. Basic Character Movement</a></li><li><a href="#2-word-word-movement">2. Word &amp; WORD Movement</a></li><li><a href="#3-line-movement">3. Line Movement</a></li><li><a href="#4-intra-line-search">4. Intra-Line Search</a></li><li><a href="#5-document-jump-movement">5. Document &amp; Jump Movement</a></li><li><a href="#6-scrolling-viewport">6. Scrolling &amp; Viewport</a></li><li><a href="#text-objects">Text Objects</a></li><li><a href="#key-concept-countoperatormotion">Key Concept: [count][operator][motion]</a></li>
+    </ul>
+</nav>
+</aside>
+            <main id="terminal-mkdocs-main-content">
+    
+    
+    
+    
+    
+
+<section id="mkdocs-terminal-content">
+    <h1 id="vim">VIM<a class="headerlink" href="#vim" title="Anchor link to this section for reference">#</a></h1>
+<p>I love using vim as a daily editor. That's why I wanted to reach my feasible vim comfort. With the help of Gemini I succesfully got this cheatsheet-ish output:</p>
+<h3 id="1-basic-character-movement">1. Basic Character Movement<a class="headerlink" href="#1-basic-character-movement" title="Anchor link to this section for reference">#</a></h3>
+<table>
+<thead>
+<tr>
+<th>Motion</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>h</code></td>
+<td>Left (similar to ←)</td>
+</tr>
+<tr>
+<td><code>j</code></td>
+<td>Down (similar to ↓)</td>
+</tr>
+<tr>
+<td><code>k</code></td>
+<td>Up (similar to ↑)</td>
+</tr>
+<tr>
+<td><code>l</code></td>
+<td>Right (similar to →)</td>
+</tr>
+<tr>
+<td><code>[</code><strong>count</strong><code>]</code> + <code>h</code>/<code>j</code>/<code>k</code>/<code>l</code></td>
+<td>Repeat motion <strong>count</strong> times (e.g., <code>5j</code> moves down 5 lines)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="2-word-word-movement">2. Word &amp; WORD Movement<a class="headerlink" href="#2-word-word-movement" title="Anchor link to this section for reference">#</a></h3>
+<p>Vim distinguishes between <strong>word</strong> (<code>w</code>, <code>b</code>, <code>e</code>) and <strong>WORD</strong> (<code>W</code>, <code>B</code>, <code>E</code>).</p>
+<ul>
+<li>
+<p>A <strong>word</strong> is a sequence of letters, digits, and underscores.</p>
+</li>
+<li>
+<p>A <strong>WORD</strong> is a sequence of non-blank characters.</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Motion</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>w</code></td>
+<td>Move to the beginning of the <strong>next word</strong></td>
+</tr>
+<tr>
+<td><code>b</code></td>
+<td>Move to the beginning of the <strong>previous word</strong></td>
+</tr>
+<tr>
+<td><code>e</code></td>
+<td>Move to the <strong>end of the current word</strong></td>
+</tr>
+<tr>
+<td><code>ge</code></td>
+<td>Move to the <strong>end of the previous word</strong></td>
+</tr>
+<tr>
+<td><code>W</code>, <code>B</code>, <code>E</code></td>
+<td>Same as <code>w</code>, <code>b</code>, <code>e</code>, but for a <strong>WORD</strong> (space-separated)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="3-line-movement">3. Line Movement<a class="headerlink" href="#3-line-movement" title="Anchor link to this section for reference">#</a></h3>
+<table>
+<thead>
+<tr>
+<th>Motion</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>0</code> (zero)</td>
+<td>To the beginning of the line</td>
+</tr>
+<tr>
+<td><code>^</code></td>
+<td>To the first <strong>non-blank</strong> character of the line</td>
+</tr>
+<tr>
+<td><code>$</code></td>
+<td>To the end of the line</td>
+</tr>
+<tr>
+<td><code>g_</code></td>
+<td>To the last <strong>non-blank</strong> character of the line</td>
+</tr>
+<tr>
+<td><code>|</code></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="4-intra-line-search">4. Intra-Line Search<a class="headerlink" href="#4-intra-line-search" title="Anchor link to this section for reference">#</a></h3>
+<p>These are very fast for navigating within a single line.</p>
+<table>
+<thead>
+<tr>
+<th>Motion</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>f</code><strong>char</strong></td>
+<td><strong>F</strong>ind the next occurrence of <strong>char</strong> on the line (lands <em>on</em> <strong>char</strong>)</td>
+</tr>
+<tr>
+<td><code>t</code><strong>char</strong></td>
+<td><strong>T</strong>ill the next occurrence of <strong>char</strong> on the line (lands <em>before</em> <strong>char</strong>)</td>
+</tr>
+<tr>
+<td><code>F</code><strong>char</strong></td>
+<td><strong>F</strong>ind the previous occurrence of <strong>char</strong> on the line (lands <em>on</em> <strong>char</strong>)</td>
+</tr>
+<tr>
+<td><code>T</code><strong>char</strong></td>
+<td><strong>T</strong>ill the previous occurrence of <strong>char</strong> on the line (lands <em>after</em> <strong>char</strong>)</td>
+</tr>
+<tr>
+<td><code>;</code></td>
+<td>Repeat the last <code>f</code>, <code>t</code>, <code>F</code>, or <code>T</code> motion in the <strong>same direction</strong></td>
+</tr>
+<tr>
+<td><code>,</code></td>
+<td>Repeat the last <code>f</code>, <code>t</code>, <code>F</code>, or <code>T</code> motion in the <strong>opposite direction</strong></td>
+</tr>
+</tbody>
+</table>
+<h3 id="5-document-jump-movement">5. Document &amp; Jump Movement<a class="headerlink" href="#5-document-jump-movement" title="Anchor link to this section for reference">#</a></h3>
+<table>
+<thead>
+<tr>
+<th>Motion</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>gg</code></td>
+<td>Go to the <strong>first</strong> line of the file (start)</td>
+</tr>
+<tr>
+<td><code>G</code></td>
+<td>Go to the <strong>last</strong> line of the file (end)</td>
+</tr>
+<tr>
+<td><code>[</code><strong>count</strong><code>]</code> + <code>G</code> or <code>[</code><strong>count</strong><code>]</code> + <code>gg</code></td>
+<td>Go to line <strong>count</strong> (e.g., <code>50G</code> or <code>:50</code>)</td>
+</tr>
+<tr>
+<td><code>(</code></td>
+<td>Jump to the beginning of the <strong>previous sentence</strong></td>
+</tr>
+<tr>
+<td><code>)</code></td>
+<td>Jump to the beginning of the <strong>next sentence</strong></td>
+</tr>
+<tr>
+<td><code>{</code></td>
+<td>Jump to the beginning of the <strong>previous paragraph</strong></td>
+</tr>
+<tr>
+<td><code>}</code></td>
+<td>Jump to the beginning of the <strong>next paragraph</strong></td>
+</tr>
+<tr>
+<td><code>H</code></td>
+<td>Move to the <strong>top</strong> of the screen (High)</td>
+</tr>
+<tr>
+<td><code>M</code></td>
+<td>Move to the <strong>middle</strong> of the screen (Middle)</td>
+</tr>
+<tr>
+<td><code>L</code></td>
+<td>Move to the <strong>bottom</strong> of the screen (Low)</td>
+</tr>
+<tr>
+<td><code>%</code></td>
+<td>Jump to the <strong>matching parenthesis, brace, or bracket</strong></td>
+</tr>
+<tr>
+<td><code>*</code> / <code>#</code></td>
+<td>Search forward / backward for the word under the cursor</td>
+</tr>
+<tr>
+<td><code>/</code><strong>pattern</strong></td>
+<td>Search <strong>forward</strong> for <strong>pattern</strong></td>
+</tr>
+<tr>
+<td><code>?</code><strong>pattern</strong></td>
+<td>Search <strong>backward</strong> for <strong>pattern</strong></td>
+</tr>
+<tr>
+<td><code>n</code> / <code>N</code></td>
+<td>Repeat the last search <strong>forward</strong> / <strong>backward</strong></td>
+</tr>
+</tbody>
+</table>
+<h3 id="6-scrolling-viewport">6. Scrolling &amp; Viewport<a class="headerlink" href="#6-scrolling-viewport" title="Anchor link to this section for reference">#</a></h3>
+<table>
+<thead>
+<tr>
+<th>Motion</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Ctrl</code> + <code>f</code></td>
+<td>Scroll <strong>f</strong>orward one full screen (page down)</td>
+</tr>
+<tr>
+<td><code>Ctrl</code> + <code>b</code></td>
+<td>Scroll <strong>b</strong>ackward one full screen (page up)</td>
+</tr>
+<tr>
+<td><code>Ctrl</code> + <code>d</code></td>
+<td>Scroll <strong>d</strong>own half a screen</td>
+</tr>
+<tr>
+<td><code>Ctrl</code> + <code>u</code></td>
+<td>Scroll <strong>u</strong>p half a screen</td>
+</tr>
+<tr>
+<td><code>zz</code></td>
+<td>Center the current line in the screen</td>
+</tr>
+<tr>
+<td><code>zt</code></td>
+<td>Put the current line at the <strong>t</strong>op of the screen</td>
+</tr>
+<tr>
+<td><code>zb</code></td>
+<td>Put the current line at the <strong>b</strong>ottom of the screen</td>
+</tr>
+</tbody>
+</table>
+<h3 id="text-objects">Text Objects<a class="headerlink" href="#text-objects" title="Anchor link to this section for reference">#</a></h3>
+<p>Text objects are a powerful concept that defines a block of text. They are not motions themselves, but are used <em>with</em> operators (e.g., <code>d</code>, <code>c</code>, <code>y</code>) to act on a logical block of text without needing precise movement. The general syntax is <code>[operator]</code> + <code>[i | a]</code> + <code>[text object]</code>.</p>
+<ul>
+<li><code>i</code> = <strong>i</strong>nner (does <strong>not</strong> include surrounding delimiters/whitespace)</li>
+<li><code>a</code> = <strong>a</strong>round (includes surrounding delimiters/whitespace)</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Text Object</th>
+<th>Description</th>
+<th>Example Operator Command</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>w</code></td>
+<td>Word</td>
+<td><code>diw</code> (delete inner word), <code>yaw</code> (yank around word)</td>
+</tr>
+<tr>
+<td><code>p</code></td>
+<td>Paragraph</td>
+<td><code>cip</code> (change inner paragraph)</td>
+</tr>
+<tr>
+<td><code>s</code></td>
+<td>Sentence</td>
+<td><code>yas</code> (yank around sentence)</td>
+</tr>
+<tr>
+<td><code>'</code></td>
+<td>Single quotes</td>
+<td><code>di'</code> (delete inner single quotes)</td>
+</tr>
+<tr>
+<td><code>"</code></td>
+<td>Double quotes</td>
+<td><code>ci"</code> (change inner double quotes)</td>
+</tr>
+<tr>
+<td><code>(</code> or <code>)</code></td>
+<td>Parentheses <code>()</code></td>
+<td><code>da(</code> (delete around parentheses)</td>
+</tr>
+<tr>
+<td><code>{</code> or <code>}</code></td>
+<td>Braces <code>{}</code></td>
+<td><code>ci{</code> (change inner braces)</td>
+</tr>
+<tr>
+<td><code>[</code> or <code>]</code></td>
+<td>Brackets <code>[]</code></td>
+<td><code>yi]</code> (yank inner brackets)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="key-concept-countoperatormotion">Key Concept: [count][operator][motion]<a class="headerlink" href="#key-concept-countoperatormotion" title="Anchor link to this section for reference">#</a></h3>
+<p>The true power of Vim motions comes from combining them with a count and an operator.
+-   Count (optional): A number to repeat the operation.
+-   Operator: The action to perform (d, c, y, &gt;, &lt;, =, gU, gu, etc.).
+-   Motion: The key or keys that specify where the action should stop.</p>
+<p>Examples:</p>
+<ul>
+<li><code>d$</code> = Delete to the end of the line.</li>
+<li><code>y2w</code> = Yank (copy) 2 words forward.</li>
+<li><code>cib</code> = Change inner block (parentheses, braces, or brackets depending on cursor position).</li>
+<li><code>3dd</code> = Delete 3 dlines.</li>
+<li><code>&gt;}</code> = Indent from the current line to the next paragraph.</li>
+</ul>
+</section>
+
+<section id="mkdocs-terminal-after-content">
+    
+</section>
+<section id="mkdocs-terminal-revision">
+<br>
+<aside>
+    <p>
+        <small>
+            <i>Page last updated 2025-11-15. See revision history on <a href="https://github.com/stiermid/stiermid.github.io/commits/master/docs/notes/vim.md">GitHub</a>.</i>
+        </small>
+    </p>
+</aside>
+</section>
+            </main>
+        </div>
+        <hr><footer>
+    <div class="terminal-mkdocs-footer-grid">
+        <div id="terminal-mkdocs-footer-copyright-info">
+             Site built with <a href="http://www.mkdocs.org">MkDocs</a> and <a href="https://github.com/ntno/mkdocs-terminal">Terminal for MkDocs</a>.
+        </div>
+    </div>
+</footer>
+    </div>
+
+    
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="alertdialog" aria-modal="true" aria-labelledby="searchModalLabel">
+    <div class="modal-dialog modal-lg" role="search">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="searchModalLabel">Search</h5>
+                <button type="button" class="close btn btn-default btn-ghost" data-dismiss="modal"><span aria-hidden="true">x</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p id="searchInputLabel">Type to start searching</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" aria-labelledby="searchInputLabel" placeholder="" id="mkdocs-search-query" title="Please enter search terms here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No document matches found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+    
+    
+</body>
+
+</html>
