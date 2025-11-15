@@ -1,10 +1,14 @@
 site_name: stiermid's
 site_url: https://stiermid.github.io/
 repo_url: https://github.com/stiermid/stiermid.github.io
+edit_uri: edit/master/docs/
+
 theme:
   name: terminal
   features:
     - footer.prev_next
+    - revision.date
+    - revision.history
 
 nav:
   - Home: 'index.md'
@@ -12,4 +16,12 @@ nav:
 
 plugins:
   - search
+  - git-revision-date
+
+markdown_extensions:
+  - meta
+  - footnotes
+  - toc:
+      permalink: "#"
+      permalink_title: Anchor link to this section for reference
 
