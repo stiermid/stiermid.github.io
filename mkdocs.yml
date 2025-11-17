@@ -13,6 +13,7 @@ theme:
 nav:
   - Home: 'index.md'
   - Notes: 'notes/index.md'
+  - Contact: 'contact.md'
 
 plugins:
   - search
