@@ -1,0 +1,17 @@
+entries:
+    - title: info
+      entries:
+        - title: PLACEHOLDER
+
+    - title: all posts
+      post_list:
+        limit: 5
+        show_more: true
+        show_more_text: see archive...
+
+    - title: links
+      entries:
+        - title: github
+          url: https://github.com/stiermid/
+        - title: linkedin
+          url: https://www.linkedin.com/in/stiermid/
