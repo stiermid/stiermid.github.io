@@ -1,8 +1,4 @@
 entries:
-    - title: info
-      entries:
-        - title: PLACEHOLDER
-
     - title: all posts
       post_list:
         limit: 5
@@ -16,3 +12,5 @@ entries:
           url: https://github.com/stiermid/
         - title: linkedin
           url: https://www.linkedin.com/in/stiermid/
+        - title: PGP_KEY (0xB70C4C90BF5E4DE6)
+          url: https://github.com/stiermid.gpg
