@@ -6,6 +6,9 @@ entries:
         show_more_text: see archive...
         show_more_url: archive
 
+    - title: rss feed
+      url: feed.xml
+
     - title: links
       entries:
         - title: github
