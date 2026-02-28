@@ -1,0 +1,11 @@
+stiermid.github.io
+==================
+
+This repo contains the source code for my personal website. I use this site for
+my technical blog posts and some social links including my PGP signature.
+
+Built With
+----------
+
+* Jekyll
+* no-style-please theme: https://github.com/riggraz/no-style-please
