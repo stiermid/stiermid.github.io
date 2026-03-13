@@ -10,6 +10,9 @@ github_username:  stiermid
 # Build settings
 remote_theme: riggraz/no-style-please
 
+# goatcounter
+goat_counter: "stiermid"
+
 plugins:
   - jekyll-feed
 
