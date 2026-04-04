@@ -8,11 +8,11 @@ url: "https://stiermid.github.io"
 github_username:  stiermid
 
 # Build settings
-#remote_theme:
-
+theme: "monoholic"
 
 plugins:
   - jekyll-feed
+  - jekyll-seo
 
 # Exclude from processing.
 # The following items will not be processed, by default.
