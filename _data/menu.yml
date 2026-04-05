@@ -1,0 +1,6 @@
+entries:
+  - title: about
+    content_file: home.md
+
+  - title: posts
+    post_list: true

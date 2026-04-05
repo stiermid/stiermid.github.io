@@ -1,14 +1,15 @@
 title: stiermid
 author: Agil Mammadov
 email: mammadovagil@tutamail.com
-description: >- # this means to ignore newlines until "baseurl:"
-  Add TEXT here
 baseurl: "/"
 url: "https://stiermid.github.io"
 github_username:  stiermid
 
 # Build settings
 theme: "monoholic"
+
+theme_config:
+  footer: false
 
 plugins:
   - jekyll-feed
