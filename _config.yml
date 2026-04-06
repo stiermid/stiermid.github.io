@@ -8,6 +8,8 @@ github_username:  stiermid
 # Build settings
 theme: "monoholic"
 
+goatcounter: stiermid
+
 theme_config:
   footer: false
 
