@@ -11,6 +11,8 @@ theme: "monoholic"
 goatcounter: stiermid
 
 theme_config:
+  back: ".."
+  date_format: "%Y%m%d"
   footer: false
 
 plugins:
