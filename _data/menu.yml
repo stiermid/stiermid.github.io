@@ -1,6 +1,9 @@
 entries:
   - title: about
-    content_file: home.md
+    content_file: about.md
 
   - title: posts
     post_list: true
+
+  - title: contact
+    content_file: contact.md
