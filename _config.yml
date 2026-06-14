@@ -9,7 +9,7 @@ github_username:  stiermid
 theme: "monoholic"
 
 goatcounter: stiermid
-fediverse_creator: @stiermid@fosstodon.org
+fediverse_creator: "@stiermid@fosstodon.org"
 
 theme_config:
   back: ".."
