@@ -8,7 +8,6 @@ github_username:  stiermid
 # Build settings
 theme: "monoholic"
 
-goatcounter: stiermid
 fediverse_creator: "@stiermid@fosstodon.org"
 
 theme_config:
