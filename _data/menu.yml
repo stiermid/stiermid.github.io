@@ -5,5 +5,5 @@ entries:
   - title: posts
     post_list: true
 
-  - title: contact
-    content_file: contact.md
+  - title: find me
+    content_file: find.md
