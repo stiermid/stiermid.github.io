@@ -1,9 +1,0 @@
-entries:
-  - title: about
-    content_file: about.md
-
-  - title: posts
-    post_list: true
-
-  - title: find me
-    content_file: find.md
