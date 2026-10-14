@@ -10,6 +10,8 @@ theme: "monoholic"
 
 fediverse_creator: "@stiermid@fosstodon.org"
 
+goatcounter: "https://stiermid.goatcounter.com/count"
+
 theme_config:
   back: ".."
   date_format: "%Y%m%d"

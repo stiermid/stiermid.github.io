@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="{{ page.lang | default: "en" }}">
+  {%- include head.html -%}
+  <body class="{% if site.theme_config.monochrome_images != false %}images-monochrome{% endif %}">
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div class="wrapper">
+      {%- unless page.layout == 'post' -%}
+        {%- include header.html -%}
+      {%- endunless -%}
+      <main id="main" class="page-content">
+        {{ content }}
+      </main>
+    </div>
+
+    {%- unless site.theme_config.footer == false -%}
+      {%- include footer.html -%}
+    {%- endunless -%}
+
+    {% if page.custom_js %}
+      {% for js_file in page.custom_js %}
+        <script
+          defer
+          src="{{ '/assets/js/' | append: js_file | append: '.js' | relative_url }}"
+        ></script>
+      {% endfor %}
+    {% endif %}
+    {% include goatcounter.html %}
+  </body>
+</html>
